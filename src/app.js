@@ -8,7 +8,13 @@ for(const name of [...c.familyNames,...(c.uncleName.trim()?[c.uncleName]:[])]){c
 $('bibleReference').href=safeUrl(c.bibleSourceUrl);$('churchPhoto').src=safeUrl(c.churchPhotoUrl);$('churchPhoto').alt=c.churchPhotoAlt;$('churchPhotoCredit').href=safeUrl(c.churchPhotoSource);
 $('openingArtwork').src=safeUrl(c.openingArtworkUrl);
 document.querySelector('.opening-title').textContent=c.openingTitle;document.querySelector('.opening-sub').textContent=c.openingSubtitle;
-if(c.photoUrl&&safeUrl(c.photoUrl)){$('photo').src=safeUrl(c.photoUrl);$('photo').onload=()=>{$('photo').classList.remove('hidden');$('photoPlaceholder').classList.add('hidden')}}
+if(c.photoUrl&&safeUrl(c.photoUrl)){
+  const photo=$('photo');
+  photo.alt=c.babyName+' — portrait';
+  photo.onload=()=>{photo.classList.remove('hidden');$('photoPlaceholder').classList.add('hidden');photo.closest('.portrait').classList.add('photo-ready')};
+  photo.onerror=()=>{photo.classList.add('hidden');$('photoPlaceholder').classList.remove('hidden');photo.closest('.portrait').classList.remove('photo-ready')};
+  photo.src=safeUrl(c.photoUrl);
+}
 for(const [id,key,note] of [['churchMap','churchMapUrl','churchUnavailable'],['receptionMap','receptionMapUrl','receptionUnavailable']])if(c[key]&&safeUrl(c[key])){$(id).href=safeUrl(c[key]);$(id).classList.remove('hidden');$(note).classList.add('hidden')}
 const validDate=s=>/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2})?(?:Z|[+-]\d{2}:\d{2})$/.test(s)&&Number.isFinite(Date.parse(s));
 const start=validDate(c.eventStart)?new Date(c.eventStart):null;

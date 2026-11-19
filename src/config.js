@@ -8,7 +8,7 @@ window.INVITATION = {
   reception: "Park Inn & Suites by Radisson Thrissur East Fort",
   receptionTime: "Food served from 1:00 PM · IST",
   eventStart: "2027-01-09T12:15:00+05:30", eventEnd: "2027-01-09T13:00:00+05:30",
-  photoUrl: "", introVideoUrl: "", audioUrl: "assets/little-blessing.mp3",
+  photoUrl: "assets/hayden-portrait.webp", introVideoUrl: "", audioUrl: "assets/little-blessing.mp3",
   churchMapUrl: "https://maps.app.goo.gl/i15Qka5Uww5mCwm4A?g_st=aw",
   receptionMapUrl: "https://maps.app.goo.gl/rByLgB6MqoXXidbz8?g_st=aw",
   openingArtworkUrl: "assets/jesus-child-heavenly.png",

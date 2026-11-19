@@ -65,3 +65,24 @@ html{scroll-behavior:smooth}
 @media(max-height:700px){#opening .opening-name{font-size:33px}}
 @media(max-height:580px) and (orientation:portrait){#opening .opening-name{font-size:30px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}#opening>.corner{animation:none!important}}
+
+/* Hayden's full photograph: uncropped, with a quiet keepsake frame. */
+#invitation .hero h1,#invitation .story-name{text-transform:none;letter-spacing:.015em;font-size:clamp(40px,7vw,65px)}
+#invitation .hero h1{max-width:620px}
+#invitation .portrait{width:min(310px,calc(100vw - 84px));height:auto;aspect-ratio:4/5;padding:9px;border-radius:28px;margin:38px auto 36px;background:linear-gradient(135deg,#fffdf7,#e8dcc2,#fffdf7);outline:1px solid #d9c698;outline-offset:5px;box-shadow:0 20px 42px #48637220,0 0 45px #e2c48528;isolation:isolate}
+#invitation .portrait-inner{border-radius:20px}
+#invitation .portrait img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:contain;border-radius:19px;position:relative;z-index:1}
+#invitation .portrait:after{border-radius:28px;pointer-events:none;z-index:-1}
+.portrait-floral{position:absolute;width:80px;height:140px;z-index:2;pointer-events:none;filter:drop-shadow(0 2px 3px #64795815)}
+.portrait-floral.floral-left{left:-38px;bottom:12px;transform:rotate(-12deg);animation:portraitLeaf 9s ease-in-out infinite}
+.portrait-floral.floral-right{right:-38px;top:0;transform:rotate(170deg);animation:portraitLeafRight 10s ease-in-out infinite}
+.portrait-sparkles{position:absolute;inset:-20px;pointer-events:none;z-index:3;color:#b49456}
+.portrait-sparkles i{position:absolute;font-style:normal;font-size:18px;opacity:0;left:0;top:16%}.portrait-sparkles i:nth-child(2){left:auto;right:0;top:65%;font-size:12px}.portrait-sparkles i:nth-child(3){left:22%;top:auto;bottom:0;font-size:14px}
+.invite.visible .portrait{animation:portraitEntrance 1.35s .42s both}
+.invite.visible .portrait-sparkles i{animation:portraitSpark 2.8s 1s both}.invite.visible .portrait-sparkles i:nth-child(2){animation-delay:1.4s}.invite.visible .portrait-sparkles i:nth-child(3){animation-delay:1.8s}
+@keyframes portraitEntrance{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes portraitSpark{0%,100%{opacity:0;transform:scale(.7)}40%,60%{opacity:.7;transform:scale(1)}}
+@keyframes portraitLeaf{50%{transform:rotate(-9deg)}}
+@keyframes portraitLeafRight{50%{transform:rotate(167deg)}}
+@media(max-width:560px){#invitation .hero h1{font-size:clamp(38px,10vw,47px);max-width:345px}#invitation .story-name{font-size:40px}#invitation .portrait{width:min(290px,calc(100vw - 84px))}}
+@media(prefers-reduced-motion:reduce){.portrait-floral,.invite.visible .portrait,.invite.visible .portrait-sparkles i{animation:none!important}.portrait-sparkles i{opacity:.35}}
